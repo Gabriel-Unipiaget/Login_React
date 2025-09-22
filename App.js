@@ -5,10 +5,28 @@ import SingUp from './screens/SingUp';
 
 const MyStack = createNativeStackNavigator({
   screens: {
-    Login: Login,
-    SingUp: SingUp,
+    Login: {
+      screen: Login,
+      options: {
+        title: '',
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+      },
+    },
+    SingUp: {
+      screen: SingUp,
+      options: {
+        title: '',
+        headerBackTitle: 'Login',
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+      },
+    },
   },
-});
+},
+);
 
 const Navigation = createStaticNavigation(MyStack);
 

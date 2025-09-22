@@ -1,6 +1,6 @@
 import styles from '../css/style.js';
 import { createStaticNavigation, useNavigation } from '@react-navigation/native';
-import { SafeAreaView, ImageBackground, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
+import { SafeAreaView, ImageBackground, Text, View, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native';
 
 const background = require('../img/background.jpg');
 const logo = require('../img/logo.png');
@@ -8,41 +8,44 @@ const logo = require('../img/logo.png');
 export default function Login() {
     const navigation = useNavigation();
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <ImageBackground source={background} style={styles.imageBackground} resizeMode='cover'>
+    return (
+        <SafeAreaView style={styles.container}>
+            <StatusBar
+                animated={true}
+                barStyle={'default'}/>
+            <ImageBackground source={background} style={styles.imageBackground} resizeMode='cover'>
 
-        <View style={styles.containerHeader}>
-          <View style={styles.containerLogo}>
-            <Image source={logo} style={styles.imageLogo} />
-          </View>
-        </View>
+                <View style={styles.containerHeader}>
+                    <View style={styles.containerLogo}>
+                        <Image source={logo} style={styles.imageLogo} />
+                    </View>
+                </View>
 
-        <View style={styles.containerMain}>
-          <Text style={styles.textTitle}>Login</Text>
+                <View style={styles.containerMain}>
+                    <Text style={styles.textTitle}>Login</Text>
 
-          <View style={styles.containerForm}>
-            <View style={styles.containerInputs}>
-              <Text>Email</Text>
-              <TextInput style={styles.input} placeholder='email@gmail.com' />
-            </View>
+                    <View style={styles.containerForm}>
+                        <View style={styles.containerInputs}>
+                            <Text>Email</Text>
+                            <TextInput style={styles.input} placeholder='email@gmail.com' />
+                        </View>
 
-            <View style={styles.containerInputs}>
-              <Text>Senha</Text>
-              <TextInput style={styles.input} placeholder='* * * * * * * *' />
-            </View>
+                        <View style={styles.containerInputs}>
+                            <Text>Senha</Text>
+                            <TextInput style={styles.input} placeholder='* * * * * * * *' />
+                        </View>
 
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.textButton}>Login</Text>
-            </TouchableOpacity>
-          </View>
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.textButton}>Login</Text>
+                        </TouchableOpacity>
+                    </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('SingUp')}>
-            <Text>Ainda não tem acesso? Clique Aqui</Text>
-          </TouchableOpacity>
-        </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('SingUp')}>
+                        <Text>Ainda não tem acesso? Clique Aqui</Text>
+                    </TouchableOpacity>
+                </View>
 
-      </ImageBackground>
-    </SafeAreaView>
-  );
+            </ImageBackground>
+        </SafeAreaView>
+    );
 }
