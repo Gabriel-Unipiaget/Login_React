@@ -46,7 +46,7 @@ export default function SingUp() {
               <TextInput style={styles.input} placeholder='* * * * * * * *' />
             </View>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
               <Text style={styles.textButton}>Sing Up</Text>
             </TouchableOpacity>
           </View>
